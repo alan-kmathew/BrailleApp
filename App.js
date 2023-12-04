@@ -3,6 +3,7 @@ import { Text, View, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LearnNumbers from "./src/components/LearnNumbers/Number.one";
+import LearnAlphabets from "./src/components/LearnAlphabets/alphabetsA";
 
 const Stack = createNativeStackNavigator();
 
