@@ -1,13 +1,31 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Text, View } from "react-native";
-import styles from "./src/styles/global.styles";
+import { Text, View, StatusBar } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import LearnNumbers from "./src/components/LearnNumbers/Number.one";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Learn Numbers"
+          component={LearnNumbers}
+          options={{
+            headerTintColor: "#001A91",
+            headerStyle: {
+              backgroundColor: "#FFEC00",
+            },
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 20,
+              fontFamily: "Arial",
+            },
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
