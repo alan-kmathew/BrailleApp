@@ -1,4 +1,4 @@
-import React,{ useEffect } from "react";
+import React, { useEffect } from "react";
 import { Text, View, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -14,8 +14,13 @@ import LearnBrailleTactile from "./src/components/LearnBrailleTactile/LearnBrail
 import LearnWords from "./src/components/LearnWords/learnWords.js";
 import LearnAlphabets from "./src/components/LearnAlphabets/learnAlphabets.js";
 
+import PracticeNumbers from "./src/components/practice/practiceNum/practiceNumbers.js";
+import PracticeAlphabets from "./src/components/practice/practiceAlpha/practiceAlphabets.js";
+import PracticingMenuScreen from "./src/components/practice/practiceMenuIndex.js";
+import InstructionScreen from "./src/components/practice/AllInOneInstructionScreen.js";
+import LastPage from "./src/components/practice/AllInOneLastPracticePage.js";
 const Stack = createNativeStackNavigator();
- 
+
 export default function App() {
   useEffect(() => {
     // Enable VoiceOver when the app starts
@@ -26,11 +31,11 @@ export default function App() {
 
   return (
     <NavigationContainer>
-     <Stack.Navigator screenOptions={
-      {headerShown:false}
-     }>
-        <Stack.Screen name="HomeScreen" component={HomeScreen}/>
-        <Stack.Screen name="LoginScreen" component={LoginScreen}/>
+      <Stack.Navigator screenOptions={
+        { headerShown: false }
+      }>
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="TeacherDesignScreen" component={TeacherDesignScreen} />
         <Stack.Screen name="StudentScreen" component={StudentScreen} />
         <Stack.Screen name="LearningMenuScreen" component={LearningMenuScreen} />
@@ -39,8 +44,8 @@ export default function App() {
         <Stack.Screen name="LearnAlphabets" component={LearnAlphabets} />
         <Stack.Screen name="LearnNumbers" component={LearnNumbers} />
         <Stack.Screen name="LearnWords" component={LearnWords} />
-        
-        
+
+
         {/* <Stack.Screen
           name="Learning"
           component={LearnBrailleTactile}
@@ -59,8 +64,36 @@ export default function App() {
 
         {/* Add more screens here if needed */}
 
+
+        <Stack.Screen
+          name="InstructionScreen"
+          component={InstructionScreen}
+          options={{
+            headerShown: false, // If you don't want to show the header
+          }}
+        />
+        <Stack.Screen
+          name="PracticeNumbers"
+          component={PracticeNumbers}
+          options={{
+            headerShown: false, // If you don't want to show the header
+          }}
+        />
+        <Stack.Screen
+          name="PracticeAlphabets"
+          component={PracticeAlphabets}
+          options={{
+            headerShown: false, // If you don't want to show the header
+          }}
+        />
+        <Stack.Screen
+          name="LastPage"
+          component={LastPage}
+          options={{
+            headerShown: false, // If you don't want to show the header
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
- 

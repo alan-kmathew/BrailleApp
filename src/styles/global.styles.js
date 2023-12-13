@@ -4,7 +4,7 @@ const globalStyles = StyleSheet.create({
   container: {
     flex: "1",
     backgroundColor: "#FFEC00",
-    alignItems: "center",
+    alignSelf: "center",
   },
 });
 
