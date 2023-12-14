@@ -10,6 +10,12 @@ import WelcomeScreen from './src/components/StudentLearningSection/WelcomeScreen
 import TeacherDesignScreen from './src/components/TeacherSection/TeacherDesignScreen';
 import QuestionDraftScreen from "./src/components/TeacherSection/QuestionDraftScreen";
  
+import LearnNumbers from "./src/components/LearnNumbers/learnNumber.js";
+import LearnAlphabets from "./src/components/LearnWords/learnWords.js";
+import LearnBrailleTactile from "./src/components/LearnBrailleTactile/LearnBrailleTactile.js";
+import LearnWords from "./src/components/LearnWords/learnWords.js";
+import learnAlphabets from "./src/components/LearnAlphabets/learnAlphabets.js";
+
 const Stack = createNativeStackNavigator();
  
 export default function App() {
@@ -25,7 +31,21 @@ export default function App() {
         <Stack.Screen name="LearningMenuScreen" component={LearningMenuScreen} />
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
         <Stack.Screen name="QuestionDraftScreen" component={QuestionDraftScreen} />
-        
+        <Stack.Screen
+          name="Learning "
+          component={LearnBrailleTactile}
+          options={{
+            headerTintColor: "#001A91",
+            headerStyle: {
+              backgroundColor: "#FFEC00",
+            },
+            headerTitleStyle: {
+              fontWeight: "bold",
+              fontSize: 20,
+              fontFamily: "Arial",
+            },
+          }}
+        />
         {/* Add more screens here if needed */}
       </Stack.Navigator>
     </NavigationContainer>
