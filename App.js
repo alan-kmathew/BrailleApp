@@ -47,6 +47,7 @@ export default function App() {
           }}
         />
         {/* Add more screens here if needed */}
+
       </Stack.Navigator>
     </NavigationContainer>
   );
