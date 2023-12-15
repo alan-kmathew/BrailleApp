@@ -27,6 +27,7 @@ export default function App() {
         <Stack.Screen name="QuestionDraftScreen" component={QuestionDraftScreen} />
         
         {/* Add more screens here if needed */}
+
       </Stack.Navigator>
     </NavigationContainer>
   );
