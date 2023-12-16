@@ -51,6 +51,10 @@ export default function App() {
         {/* <Stack.Screen
           name="Learning"
           component={LearnBrailleTactile}
+      <Stack.Navigator>
+        <Stack.Screen
+          name="PracticingMenuScreen"
+          component={PracticingMenuScreen}
           options={{
             headerTintColor: "#001A91",
             headerStyle: {
