@@ -4,6 +4,32 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#FFEC00",
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  line: {
+    height: 2,
+    backgroundColor: '#001A91',
+    flex: 1,
+  },
+  homebtn: {
+    marginBottom:10,
+    backgroundColor: '#001A91',
+    borderRadius: 10,
+    marginHorizontal: 10,
+    marginRight:250,
+    width: 100,
+    height: 40,
+  },
+  homebtntext: {
+    color: 'yellow',
+    textAlign: 'center',
+    fontSize: 20,
+    marginTop: 5
   },
   text: {
     color: "#001A91",

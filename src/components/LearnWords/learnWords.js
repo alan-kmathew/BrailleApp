@@ -33,7 +33,7 @@ const BrailleData = [
 
 const ThreeLetterWords = ["cat", "dog", "bat", "pen", "sun", "map"];
 
-const LearnWords = () => {
+const LearnWords = ({navigation}) => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentLetterIndex, setCurrentLetterIndex] = useState(0);
 
@@ -116,6 +116,12 @@ const LearnWords = () => {
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity style={styles.homebtn} onPress={() => navigation.goBack()}>
+          <Text style={styles.homebtntext}>Home</Text>
+        </TouchableOpacity>
+      <View style={styles.header}>
+        <View style={styles.line} />
+      </View>
       <Text style={styles.text}>
       Jetzt lernen Sie Word: {ThreeLetterWords[currentWordIndex]}
       </Text>

@@ -13,7 +13,7 @@ const Stack = createStackNavigator();
 const StudentScreen = ({ navigation }) => {
     const handleButton2Press = () => {
         // Handle the press for button 2
-        console.log('Button 2 pressed');
+        console.log('clicked on practice button');
     };
     return (
         <View style={styles.container}>

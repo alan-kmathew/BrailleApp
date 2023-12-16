@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: 'blue',
+    backgroundColor: '#001A91',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -59,7 +59,7 @@ export const styles = StyleSheet.create({
     marginTop: height * 0.03,
   },
   buttonText: {
-    color: 'blue',
+    color: '#001A91',
     textAlign: 'center',
     fontSize: width > 600 ? 20 : 16,
   },
@@ -69,7 +69,7 @@ export const styles = StyleSheet.create({
     fontSize: width > 600 ? 25 : 20,
   },
   modalButton: {
-    backgroundColor: 'blue',
+    backgroundColor: '#001A91',
     padding: width * 0.02,
   },
   centeredView: {
@@ -84,7 +84,7 @@ export const styles = StyleSheet.create({
   modalText: {
     marginBottom: height * 0.02,
     fontSize: width > 600 ? 35 : 25,
-    color: 'blue',
+    color: '#001A91',
     padding: width * 0.03,
   },
 });

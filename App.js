@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useEffect } from "react";
 import { Text, View, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -9,16 +9,21 @@ import LearningMenuScreen from "./src/components/StudentLearningSection/Learning
 import WelcomeScreen from './src/components/StudentLearningSection/WelcomeScreen';
 import TeacherDesignScreen from './src/components/TeacherSection/TeacherDesignScreen';
 import QuestionDraftScreen from "./src/components/TeacherSection/QuestionDraftScreen";
- 
 import LearnNumbers from "./src/components/LearnNumbers/learnNumber.js";
-import LearnAlphabets from "./src/components/LearnWords/learnWords.js";
 import LearnBrailleTactile from "./src/components/LearnBrailleTactile/LearnBrailleTactile.js";
 import LearnWords from "./src/components/LearnWords/learnWords.js";
-import learnAlphabets from "./src/components/LearnAlphabets/learnAlphabets.js";
+import LearnAlphabets from "./src/components/LearnAlphabets/learnAlphabets.js";
 
 const Stack = createNativeStackNavigator();
  
 export default function App() {
+  useEffect(() => {
+    // Enable VoiceOver when the app starts
+
+    // Disable VoiceOver when the app is unmounted
+    return () => disableVoiceOver();
+  }, []);
+
   return (
     <NavigationContainer>
      <Stack.Navigator screenOptions={
@@ -31,8 +36,13 @@ export default function App() {
         <Stack.Screen name="LearningMenuScreen" component={LearningMenuScreen} />
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
         <Stack.Screen name="QuestionDraftScreen" component={QuestionDraftScreen} />
-        <Stack.Screen
-          name="Learning "
+        <Stack.Screen name="LearnAlphabets" component={LearnAlphabets} />
+        <Stack.Screen name="LearnNumbers" component={LearnNumbers} />
+        <Stack.Screen name="LearnWords" component={LearnWords} />
+        
+        
+        {/* <Stack.Screen
+          name="Learning"
           component={LearnBrailleTactile}
           options={{
             headerTintColor: "#001A91",
@@ -45,7 +55,8 @@ export default function App() {
               fontFamily: "Arial",
             },
           }}
-        />
+        /> */}
+
         {/* Add more screens here if needed */}
 
       </Stack.Navigator>

@@ -1,26 +1,35 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Modal, StyleSheet } from 'react-native';
+import React, { useState,useEffect} from 'react';
+import { View, Text, TouchableOpacity, Modal, StyleSheet,Linking } from 'react-native';
 import styles from '../../styles/HomeScreen.styles';
 import { createStackNavigator } from '@react-navigation/stack';
 import { BlurView } from '@react-native-community/blur';
 
-
 const Stack = createStackNavigator();
 
 const HomeScreen = ({ navigation }) => {
+  useEffect(() => {
+    // Enable VoiceOver when the screen is focused
+    const unsubscribe = navigation.addListener('focus', () => {
+    });
+
+    // Disable VoiceOver when the screen is blurred
+    return unsubscribe;
+  }, [navigation]);
+
   const [isTeacherModalVisible, setIsTeacherModalVisible] = useState(false);
 
   const handleTeacherPress = () => {
     setIsTeacherModalVisible(true);
   };
 
-  const handleTeacherConfirm = () => {
+  const handleTeacherConfirm = async () => {
     setIsTeacherModalVisible(false);
-    navigation.navigate('LoginScreen');
-  };
 
-  const handleTeacherCancel = () => {
-    setIsTeacherModalVisible(false);
+    // Open device settings
+    await Linking.openSettings();
+
+    // Navigate to the next screen
+    navigation.navigate('LoginScreen');
   };
 
   return (

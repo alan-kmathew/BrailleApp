@@ -15,7 +15,7 @@ const BrailleData = [
   ["1", "0", "1", "0", "1", "0"], // Represents Braille for 9
 ];
 
-const LearnNumbers = () => {
+const LearnNumbers = ({ navigation }) => {
   const [currentNumber, setCurrentNumber] = useState(0);
 
   const handleNext = () => {
@@ -67,8 +67,14 @@ const LearnNumbers = () => {
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity style={styles.homebtn} onPress={() => navigation.goBack()}>
+        <Text style={styles.homebtntext}>Home</Text>
+      </TouchableOpacity>
+      <View style={styles.header}>
+        <View style={styles.line} />
+      </View>
       <Text style={styles.text}>
-      Jetzt sind Sie Learning Number: {currentNumber}
+        Jetzt sind Sie Learning Number: {currentNumber}
       </Text>
       {renderBraille()}
       <View style={styles.buttonContainer}>

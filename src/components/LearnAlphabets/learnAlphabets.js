@@ -32,7 +32,7 @@ const BrailleData = [
   ["1", "0", "0", "1", "1", "0"], // Represents Braille for z
 ];
 
-const LearnAlphabets = () => {
+const LearnAlphabets = ({ navigation }) => {
   const [currentAlphabet, setCurrentAlphabet] = useState(0);
 
   const handleNext = () => {
@@ -80,6 +80,12 @@ const LearnAlphabets = () => {
 
   return (
     <View style={styles.container}>
+       <TouchableOpacity style={styles.homebtn} onPress={() => navigation.goBack()}>
+          <Text style={styles.homebtntext}>Home</Text>
+        </TouchableOpacity>
+      <View style={styles.header}>
+        <View style={styles.line} />
+      </View>
       <Text style={styles.text}>
       Jetzt lernen Sie das Alphabet {String.fromCharCode(97 + currentAlphabet)}
       </Text>

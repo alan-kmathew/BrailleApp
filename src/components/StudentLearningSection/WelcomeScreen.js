@@ -33,10 +33,22 @@ const WelcomeScreen = ({ route, navigation }) => {
         <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()} >
           <Text style={styles.buttonText}>Back</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity style={styles.button} onPress={() => console.log('Button 2 pressed')}>
-          <Text style={styles.buttonText}>Next</Text>
+        {word === 'Alphabets' && (
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LearnAlphabets')}>
+        <Text style={styles.buttonText} >Next</Text>
         </TouchableOpacity>
+        )}
+         {word === 'Numbers' && (
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LearnNumbers')}>
+        <Text style={styles.buttonText} >Next</Text>
+        </TouchableOpacity>
+        )}
+         {word !== 'Alphabets' && word !== 'Numbers' && (
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LearnWords')}>
+        <Text style={styles.buttonText} >Next</Text>
+        </TouchableOpacity>
+        )}
+        
       </View>
     </View>
   );
@@ -47,7 +59,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: 'blue',
+    backgroundColor: '#001A91',
     paddingTop: height * 0.05,
   },
   header: {
@@ -85,7 +97,7 @@ const styles = StyleSheet.create({
     height: height * 0.07,
   },
   buttonText: {
-    color: 'blue',
+    color: '#001A91',
     textAlign: 'center',
     fontSize: width > 600 ? 30 : 25,
     marginTop: height * 0.00,

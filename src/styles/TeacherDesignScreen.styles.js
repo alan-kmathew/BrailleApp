@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-start',
         alignItems: 'center',
-        backgroundColor: 'blue'
+        backgroundColor: '#001A91'
     },
     icon: {
         color: 'yellow',
@@ -47,16 +47,16 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold',
         fontFamily: 'Arial',
-        color: 'blue',
+        color: '#001A91',
         fontSize: 25,
     },
     number: {
     fontWeight: 'bold',
-    color: 'blue',
+    color: '#001A91',
     textAlign:'center',
     fontSize: 20,
     borderWidth: 1,
-    borderColor: 'blue',
+    borderColor: '#001A91',
     borderRadius: 20,
     padding: 10,
     margin:10,
@@ -67,11 +67,11 @@ export const styles = StyleSheet.create({
     },
     albhabet: {
     fontWeight: 'bold',
-    color: 'blue',
+    color: '#001A91',
     textAlign:'center',
     fontSize: 20,
     borderWidth: 1,
-    borderColor: 'blue',
+    borderColor: '#001A91',
     borderRadius: 20,
     padding: 10,
     margin:10,
