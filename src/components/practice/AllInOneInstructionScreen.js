@@ -1,22 +1,27 @@
 import React from "react";
-import PracticeNumbers from "./practiceNum/practiceNumbers";
-import PracticeAlphabets from "./practiceAlpha/practiceAlphabets";
-
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+  Dimensions,
+} from "react-native";
 
 const InstructionScreen = ({ route, navigation }) => {
   const { word } = route.params;
   const handleNextPress = () => {
-    // Navigate to the appropriate practice screen based on the 'word'
     if (word === "ALPHABETE") {
       navigation.navigate("PracticeAlphabets");
     } else if (word === "ZAHLEN") {
       navigation.navigate("PracticeNumbers");
+    } else if (word === "Taktile") {
+      navigation.navigate("TactileExercise");
     }
-    // Add other conditions as needed for different practice screens
   };
+
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.headerText}>{`${word} ÜBEN `}</Text>
       <View style={styles.header}>
         <View style={styles.line} />
@@ -24,6 +29,7 @@ const InstructionScreen = ({ route, navigation }) => {
       <View style={styles.contentContainer}>
         {word === "ALPHABETE" && (
           <Text style={styles.sentence}>
+            {" "}
             - Zuerst hören Sie die aktuelle Anzahl der Fragen aus der Gesamtzahl
             der Fragen.{"\n"} {"\n"}- Dann werden Sie die Frage hören, die Sie
             lösen müssen.{"\n"} {"\n"}- Dann hören Sie die Punkte, das sind die
@@ -44,8 +50,9 @@ const InstructionScreen = ({ route, navigation }) => {
             und die zweite für Prüfen.
           </Text>
         )}
-        {word !== "ALPHABETE" && word !== "ZAHLEN" && (
+        {word === "Taktile" && (
           <Text style={styles.sentence}>
+            {" "}
             - Zuerst hören Sie die aktuelle Anzahl der Fragen aus der Gesamtzahl
             der Fragen.{"\n"} {"\n"}- Dann werden Sie die Frage hören, die Sie
             lösen müssen.{"\n"} {"\n"}- Dann hören Sie die Punkte, das sind die
@@ -67,16 +74,18 @@ const InstructionScreen = ({ route, navigation }) => {
           <Text style={styles.buttonText}>Next</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
+const { height, width } = Dimensions.get("window");
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     justifyContent: "flex-start",
     alignItems: "center",
-    backgroundColor: "blue",
+    backgroundColor: "#001A91",
+    paddingVertical: 20,
   },
   header: {
     flexDirection: "row",
@@ -85,40 +94,39 @@ const styles = StyleSheet.create({
   },
   line: {
     height: 2,
-    backgroundColor: "yellow",
+    backgroundColor: "#FFEC00",
     flex: 1,
   },
   headerText: {
-    fontSize: 18,
-    color: "yellow",
+    fontSize: height > 600 ? 30 : 20,
+    color: "#FFEC00",
     marginTop: 20,
     fontWeight: "bold",
-    fontSize: 30,
   },
   sentence: {
     color: "white",
-    fontSize: 20,
+    fontSize: height > 600 ? 20 : 16,
     fontWeight: "regular",
-    marginTop: 160,
+    marginTop: 20,
     textAlign: "left",
   },
   buttonContainer: {
     flexDirection: "row",
-    marginTop: 180,
+    marginTop: 20,
     alignItems: "center",
   },
   button: {
-    backgroundColor: "yellow",
+    backgroundColor: "#FFEC00",
     padding: 10,
     borderRadius: 15,
     marginHorizontal: 10,
-    width: 172,
-    height: 62,
+    width: width > 600 ? 172 : 120,
+    height: height > 600 ? 62 : 48,
   },
   buttonText: {
-    color: "blue",
+    color: "#001A91",
     textAlign: "center",
-    fontSize: 25,
+    fontSize: height > 600 ? 25 : 18,
     marginTop: 5,
   },
   contentContainer: {

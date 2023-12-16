@@ -1,4 +1,6 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+
+const { width, height } = Dimensions.get("window");
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -8,7 +10,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#001A9180",
     padding: 8,
     borderRadius: 27,
-    marginTop: 10,
+    marginTop: 27,
     alignSelf: "center", // Center the container
   },
   questionCountText: {
@@ -19,29 +21,16 @@ const styles = StyleSheet.create({
   question: {
     color: "#001A91",
     textAlign: "center",
-    fontSize: 20,
+    fontSize: width * 0.04,
     fontStyle: "normal",
     fontWeight: "bold",
     fontFamily: "Arial",
-    top: 30,
-  },
-  emptyDot: {
-    width: 95,
-    height: 95,
-    borderRadius: 50,
-    backgroundColor: "white",
-    margin: 40,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  dotText: {
-    color: "#FFEC00",
-    fontSize: 36,
-    fontWeight: "bold",
+    top: height * 0.03,
   },
   buttonNCContainer: {
     flexDirection: "row",
     marginBottom: 60,
+    alignSelf: "center",
   },
   btnClear: {
     backgroundColor: "#001A91",
@@ -55,12 +44,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#001A91",
     paddingVertical: 15,
     paddingHorizontal: 40,
-    marginHorizontal: 10,
+    marginHorizontal: 40,
     borderRadius: 10,
   },
   buttonText: {
     color: "#001A91",
-    fontSize: 24,
+    fontSize: 36,
     fontWeight: "bold",
     textAlign: "center",
   },
@@ -84,7 +73,7 @@ const styles = StyleSheet.create({
     height: 95,
     borderRadius: 50,
     backgroundColor: "#FFFFFF",
-    margin: 10,
+    margin: 35,
     justifyContent: "center",
     alignItems: "center",
   },

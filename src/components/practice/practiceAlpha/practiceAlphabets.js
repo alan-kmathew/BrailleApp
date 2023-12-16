@@ -45,14 +45,6 @@ const PracticeAlphabets = () => {
 
   const handleClear = () => {
     setSelectedButtons([]);
-    if (currentAlphabet > "A") {
-      setCurrentAlphabet(
-        String.fromCharCode(currentAlphabet.charCodeAt(0) - 1)
-      );
-    } else {
-      // If user is at the first question, navigate back to the previous screen
-      navigation.goBack();
-    }
   };
 
   const toggleErrorPopup = () => {
@@ -70,12 +62,6 @@ const PracticeAlphabets = () => {
       if (currentQuestionIndex === totalQuestions - 1) {
         // Navigate to the LastPage screen
         navigation.navigate("LastPage", { word: "ALPHABETE" });
-      } else {
-        // Navigate to the next question or screen
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setCurrentAlphabet(
-          String.fromCharCode(currentAlphabet.charCodeAt(0) + 1)
-        );
       }
     }, 2000);
   };
@@ -150,8 +136,8 @@ const PracticeAlphabets = () => {
       </View>
 
       <Text style={styles.question}>
-        Please select the numbers that represent the alphabet {currentAlphabet}{" "}
-        and press submit.
+        Wählen Sie Punkte aus, die für die Alphabet{currentAlphabet} stehen, und
+        drücken Sie auf prüfen.
       </Text>
 
       <View style={styles.buttonContainer}>
@@ -221,7 +207,7 @@ const PracticeAlphabets = () => {
         <Modal isVisible={isModalVisible}>
           <View style={styles.modalContainer}>
             <Text style={styles.modalText}>
-              {isAnswerCorrect ? "Correct" : "Incorrect"}
+              {isAnswerCorrect ? "Richtig" : "Falsch"}
             </Text>
           </View>
         </Modal>
@@ -243,12 +229,12 @@ const PracticeAlphabets = () => {
           }}
         >
           <Text style={styles.bottomButtonText}>
-            {selectedButtons.length > 0 ? "Clear" : "Back"}
+            {selectedButtons.length > 0 ? "Klar" : "Zurück"}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.btnSubmit} onPress={handleSubmit}>
           <Text style={styles.bottomButtonText}>
-            {currentQuestionIndex === totalQuestions - 1 ? "Finish" : "Next"}
+            {currentQuestionIndex === totalQuestions - 1 ? "FERTIG" : "Prüfen"}
           </Text>
         </TouchableOpacity>
       </View>

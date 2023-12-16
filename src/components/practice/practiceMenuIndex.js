@@ -3,7 +3,6 @@ import { View, Text } from "react-native";
 import { TouchableOpacity, StyleSheet } from "react-native";
 import styles from "./practiceMenuIndexStyle";
 import { useNavigation } from "@react-navigation/native";
-import InstructionScreen from "./AllInOneInstructionScreen";
 
 const PracticingMenuScreen = ({ navigation }) => {
   const handleButtonPress = (word) => {
@@ -30,7 +29,7 @@ const PracticingMenuScreen = ({ navigation }) => {
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => handleButtonPress("Taktile_Übung")}
+        onPress={() => handleButtonPress("Taktile")}
       >
         <Text style={styles.buttonText}>Taktile Übung</Text>
       </TouchableOpacity>

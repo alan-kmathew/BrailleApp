@@ -19,6 +19,8 @@ import PracticeAlphabets from "./src/components/practice/practiceAlpha/practiceA
 import PracticingMenuScreen from "./src/components/practice/practiceMenuIndex.js";
 import InstructionScreen from "./src/components/practice/AllInOneInstructionScreen.js";
 import LastPage from "./src/components/practice/AllInOneLastPracticePage.js";
+import TactileExercise from "./src/components/practice/tactileExercise/TactileExercise.js";
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -82,6 +84,13 @@ export default function App() {
         <Stack.Screen
           name="PracticeAlphabets"
           component={PracticeAlphabets}
+          options={{
+            headerShown: false, // If you don't want to show the header
+          }}
+        />
+        <Stack.Screen
+          name="TactileExercise"
+          component={TactileExercise}
           options={{
             headerShown: false, // If you don't want to show the header
           }}
