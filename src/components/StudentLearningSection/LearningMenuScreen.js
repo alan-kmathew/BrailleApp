@@ -30,15 +30,15 @@ const LearningMenuScreen = ({ navigation }) => {
                 {'\n'} {/* New line */}
                 LERNEN</Text>
             <TouchableOpacity style={styles.button} onPress={() => handleButton1Press('Alphabets')}>
-                <Text style={styles.buttonText}>Learn Alphabets</Text>
+                <Text style={styles.buttonText}>Lernen Alphabete</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.button} onPress={() => handleButton1Press('Numbers')}>
-                <Text style={styles.buttonText}>Learn Numbers</Text>
+                <Text style={styles.buttonText}>Lernen Zahlen</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.button} onPress={() => handleButton1Press('Words')}>
-                <Text style={styles.buttonText}>Learn Words</Text>
+                <Text style={styles.buttonText}>Lernen Wörter</Text>
             </TouchableOpacity>
         </View>
     );

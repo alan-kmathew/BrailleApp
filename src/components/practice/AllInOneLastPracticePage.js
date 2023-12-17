@@ -13,7 +13,7 @@ const LastPage = ({ route }) => {
   const navigation = useNavigation();
   // Add a check to ensure route and route.params are defined
   const { word } = route?.params || {};
-
+  console.log("word----------------->",word)
   const handleIndexPress = () => {
     navigation.navigate("PracticingMenuScreen");
   };

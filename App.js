@@ -20,6 +20,7 @@ import PracticingMenuScreen from "./src/components/practice/practiceMenuIndex.js
 import InstructionScreen from "./src/components/practice/AllInOneInstructionScreen.js";
 import LastPage from "./src/components/practice/AllInOneLastPracticePage.js";
 import TactileExercise from "./src/components/practice/tactileExercise/TactileExercise.js";
+import Preview from "./src/components/TeacherSection/previewTeachersPage.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -29,7 +30,7 @@ export default function App() {
 
     // Disable VoiceOver when the app is unmounted
     return () => disableVoiceOver();
-  }, []);
+  },);
 
   return (
     <NavigationContainer>
@@ -46,66 +47,27 @@ export default function App() {
         <Stack.Screen name="LearnAlphabets" component={LearnAlphabets} />
         <Stack.Screen name="LearnNumbers" component={LearnNumbers} />
         <Stack.Screen name="LearnWords" component={LearnWords} />
+        <Stack.Screen name="PracticingMenuScreen" component={PracticingMenuScreen} />
+        <Stack.Screen name="InstructionScreen" component={InstructionScreen} />
+        <Stack.Screen name="PracticeNumbers" component={PracticeNumbers} />
+        <Stack.Screen name="PracticeAlphabets" component={PracticeAlphabets} />
+        <Stack.Screen name="TactileExercise" component={TactileExercise} />
+        <Stack.Screen name="LastPage" component={LastPage} />
+        <Stack.Screen name="Preview" component={Preview} />
 
 
-        {/* <Stack.Screen
-          name="Learning"
-          component={LearnBrailleTactile}
-      <Stack.Navigator>
-        <Stack.Screen
-          name="PracticingMenuScreen"
-          component={PracticingMenuScreen}
-          options={{
-            headerTintColor: "#001A91",
-            headerStyle: {
-              backgroundColor: "#FFEC00",
-            },
-            headerTitleStyle: {
-              fontWeight: "bold",
-              fontSize: 20,
-              fontFamily: "Arial",
-            },
-          }}
-        /> */}
 
         {/* Add more screens here if needed */}
 
 
-        <Stack.Screen
+        {/* <Stack.Screen
           name="InstructionScreen"
           component={InstructionScreen}
           options={{
             headerShown: false, // If you don't want to show the header
           }}
-        />
-        <Stack.Screen
-          name="PracticeNumbers"
-          component={PracticeNumbers}
-          options={{
-            headerShown: false, // If you don't want to show the header
-          }}
-        />
-        <Stack.Screen
-          name="PracticeAlphabets"
-          component={PracticeAlphabets}
-          options={{
-            headerShown: false, // If you don't want to show the header
-          }}
-        />
-        <Stack.Screen
-          name="TactileExercise"
-          component={TactileExercise}
-          options={{
-            headerShown: false, // If you don't want to show the header
-          }}
-        />
-        <Stack.Screen
-          name="LastPage"
-          component={LastPage}
-          options={{
-            headerShown: false, // If you don't want to show the header
-          }}
-        />
+        /> */}
+
       </Stack.Navigator>
     </NavigationContainer>
   );

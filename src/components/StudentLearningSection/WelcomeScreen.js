@@ -15,17 +15,17 @@ const WelcomeScreen = ({ route, navigation }) => {
       <Text style={styles.headerText}>{`${word} Learning`}</Text>
       {word === 'Alphabets' && (
         <Text style={styles.sentence}>
-          Here you will explore the alphabets from A to Z. The box in Braille shows the corresponding number you will learn.
+          Hier lernen Sie das Alphabet von A bis Z kennen. Das Kästchen in Brailleschrift zeigt die entsprechende Zahl, die Sie lernen werden.
         </Text>
       )}
       {word === 'Numbers' && (
         <Text style={styles.sentence}>
-          Here you will explore the numbers from 1 to 9. The box in Braille shows the corresponding number you will learn.
+          Hier werden Sie die Zahlen von 1 bis 9 erkunden. Das Kästchen in Brailleschrift zeigt die entsprechende Zahl, die Sie lernen werden.
         </Text>
       )}
       {word !== 'Alphabets' && word !== 'Numbers' && (
         <Text style={styles.sentence}>
-          Here you will explore the words. The box in Braille shows the corresponding number you will learn.
+          Hier werden Sie die Wörter erkunden. Der Kasten in Blindenschrift zeigt die entsprechende Zahl, die Sie lernen werden.
         </Text>
       )}
 

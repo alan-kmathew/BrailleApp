@@ -3,24 +3,52 @@ import { View, Text, TouchableOpacity } from "react-native";
 import Modal from "react-native-modal";
 import styles from "./practiceNumbersStyles";
 import { useNavigation } from "@react-navigation/native";
+import { fetchData } from '../../api';
+
+
 
 const PracticeNumbers = () => {
   const navigation = useNavigation();
-  const totalQuestions = 5;
-  const [currentNumber, setCurrentNumber] = useState(1);
+  const [totalQuestions, setTotalQuestions] = useState();
+  const [numberArray, setNumberArray] = useState([]);
+  const [pageCount, setPageCount]=useState(1);
+  const [currentNumberIndex, setCurrentNumberIndex] = useState(0);
   const [selectedButtons, setSelectedButtons] = useState([]);
   const [isErrorPopupVisible, setErrorPopupVisible] = useState(false);
   const [errorPopupTimer, setErrorPopupTimer] = useState(null);
   const [isModalVisible, setModalVisible] = useState(false);
   const [isAnswerCorrect, setAnswerCorrect] = useState(false);
 
-  const correctAnswers = [[1], [1, 2], [1, 3, 5], [2, 5, 6], [1, 4, 6]];
+  // const correctAnswers = [[1], [1, 2], [1, 3, 5], [2, 5, 6], [1, 4, 6]];
+
+  useEffect(() => {
+    const fetchNumbers = async () => {
+      try {
+        const responseData = await fetchData('/get/numbers');
+        if (responseData && responseData.numbers) {
+          console.log("responseData----------->", responseData);
+          setTotalQuestions(responseData.numbers.length);
+          setNumberArray(responseData.numbers);
+        } else {
+          console.error('Invalid data format:', responseData);
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchNumbers();
+  }, []);
+
+  const currentNumber = numberArray[currentNumberIndex];
+
 
   useEffect(() => {
     console.log(
       "Selected Buttons for number " + currentNumber + ":",
       selectedButtons
     );
+    
   }, [selectedButtons]);
 
   useEffect(() => {
@@ -44,16 +72,31 @@ const PracticeNumbers = () => {
   };
 
   const handleSubmit = () => {
+    console.log("page count ---- ", pageCount)
+    setPageCount(currentNumberIndex+1)
+    console.log("page count after---- ", pageCount)
+    let isCorrect = false;
     if (selectedButtons.length === 0) {
       toggleErrorPopup();
       return;
     }
+    const correctAnswers = [{ 0: [2, 4, 5] }, { 1: [1] }, { 2: [1, 2] }, { 3: [1, 4] }, { 4: [1, 4, 5] }, { 5: [1, 5] }, { 6: [1, 2, 4] }, { 7: [1, 2, 4, 5,] }, { 8: [1, 2, 5] }, { 9: [2, 4] }];
 
-    const isCorrect = correctAnswers[currentNumber - 1].every((value) =>
-      selectedButtons.includes(value)
-    );
+    for (const [k, v] of Object.entries(correctAnswers)) {
+      if (parseInt(k) === parseInt(currentNumber)) {
+        const values = v;
+        const rightAnswer =  Array.from(values[currentNumber]);
+        console.log("dvsfvfddfvdf------------->",typeof(rightAnswer),typeof(selectedButtons));
+        if (JSON.stringify(selectedButtons) === JSON.stringify(values[currentNumber])) {
+          setAnswerCorrect(true);
+          console.log("booleanvalue")
+        }
+      }
+    }
 
-    setAnswerCorrect(isCorrect);
+
+
+
 
     if (isCorrect) {
       console.log("Correct");
@@ -61,13 +104,14 @@ const PracticeNumbers = () => {
       console.log("Incorrect");
     }
 
-    toggleModal();
-
-    if (currentNumber === totalQuestions) {
+   
+    if (currentNumber<= numberArray.length) {
+      console.log("num array---->"+numberArray.length)
+      setCurrentNumberIndex(currentNumberIndex + 1);
       clearErrorPopupTimer();
-      navigation.goBack(); // Go back to the previous screen
+      toggleModal(); // Go back to the previous screen
     } else {
-      setCurrentNumber(currentNumber + 1);
+      setCurrentNumberIndex(currentNumberIndex + 1);
     }
   };
 
@@ -90,9 +134,9 @@ const PracticeNumbers = () => {
 
     setTimeout(() => {
       setModalVisible(false);
-
-      if (currentNumber === totalQuestions) {
+      if (pageCount === totalQuestions) {
         navigation.navigate("LastPage", { word: "ZAHLEN" });
+        setSelectedButtons([]);
       }
     }, 2000);
   };
@@ -101,11 +145,17 @@ const PracticeNumbers = () => {
     console.log("End of questions");
   };
 
+  // const handleNextQuestion = () => {
+  //   if (currentNumberIndex < =numberArray.length - 1) {
+  //     setCurrentNumberIndex(currentNumberIndex + 1);
+  //   }
+  // };
+
   return (
     <View style={styles.container}>
       <View style={styles.questionCountContainer}>
         <Text style={styles.questionCountText}>
-          Question {currentNumber} out of {totalQuestions}
+          Question {currentNumber} out of {numberArray.length}
         </Text>
       </View>
 
@@ -195,7 +245,20 @@ const PracticeNumbers = () => {
       </View>
 
       <View style={styles.buttonNCContainer}>
-        <TouchableOpacity
+        {selectedButtons.length === 0 && (
+          <TouchableOpacity style={styles.btnClear} onPress={() => navigation.goBack()}>
+            <Text style={styles.bottomButtonText}>Zurück</Text>
+          </TouchableOpacity>
+        )}
+        {selectedButtons.length > 0 && (
+          <TouchableOpacity style={styles.btnClear} onPress={() => {
+            clearErrorPopupTimer();
+            handleClear();
+          }}>
+            <Text style={styles.bottomButtonText} >Klar</Text>
+          </TouchableOpacity>
+        )}
+        {/* <TouchableOpacity
           style={styles.btnClear}
           onPress={() => {
             clearErrorPopupTimer();
@@ -205,7 +268,8 @@ const PracticeNumbers = () => {
           <Text style={styles.bottomButtonText}>
             {selectedButtons.length > 0 ? "Klar" : "Zurück"}
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+
         <TouchableOpacity
           style={styles.btnSubmit}
           onPress={() => {
@@ -214,10 +278,11 @@ const PracticeNumbers = () => {
           }}
         >
           <Text style={styles.bottomButtonText}>
-            {currentNumber === totalQuestions ? "FERTIG" : "Prüfen"}
+            {pageCount === totalQuestions ? "FERTIG" : "Prüfen"}
           </Text>
         </TouchableOpacity>
       </View>
+
     </View>
   );
 };

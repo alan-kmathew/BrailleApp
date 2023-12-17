@@ -15,7 +15,7 @@ const LoginScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>LOGIN PAGE</Text>
+      <Text style={styles.title}>LOGIN SIETE</Text>
 
       <TextInput
         style={styles.usr_input}
@@ -37,7 +37,7 @@ const LoginScreen = ({ navigation }) => {
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => navigation.goBack()} style={styles.bck_btn}>
-        <Text style={styles.bck_btn_text}>Back</Text>
+        <Text style={styles.bck_btn_text}>Zurück</Text>
       </TouchableOpacity>
     </View>
   );

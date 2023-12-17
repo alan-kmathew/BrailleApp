@@ -35,11 +35,11 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('StudentScreen')} title="Next Screen">
-        <Text style={styles.buttonText}>Student</Text>
+        <Text style={styles.buttonText}>Studentin/Studenten</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.button} onPress={handleTeacherPress} title="Next Screen">
-        <Text style={styles.buttonText}>Teacher</Text>
+        <Text style={styles.buttonText}>Lehrerin/Lehrer</Text>
       </TouchableOpacity>
 
       <Modal visible={isTeacherModalVisible} animationType="fade" transparent>
@@ -51,10 +51,10 @@ const HomeScreen = ({ navigation }) => {
         >
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
-              <Text style={styles.modalText}>TURN OFF VOICE OVER FIRST</Text>
+              <Text style={styles.modalText}>BITTE SCHALTEN SIE ZUERST DIE SPRACHAUSGABE AUS</Text>
 
               <TouchableOpacity style={styles.confirmButton} onPress={handleTeacherConfirm}>
-                <Text style={styles.buttonText}>CLICK HERE</Text>
+                <Text style={styles.buttonText}>HIER KLICKEN</Text>
               </TouchableOpacity>
             </View>
           </View>

@@ -12,6 +12,14 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     top: height * 0.1,
   },
+  iconBack:{
+    color:'yellow',
+    alignSelf:'left',
+    fontSize: width > 600 ? 40 : 30,
+    marginLeft: width > 600 ? 36 : 18,
+    marginTop: width > 600 ? 36 : 18,
+
+  },
   container: {
     flex: 1,
     backgroundColor: '#001A91',
@@ -21,9 +29,9 @@ export const styles = StyleSheet.create({
   p1text: {
     color: 'yellow',
     fontWeight: 'regular',
-    fontSize: width > 600 ? 20 : 14,
+    fontSize: width > 600 ? 20 : 18,
     position: 'absolute',
-    top: height * 0.16,
+    top: height * 0.21,
   },
   checkboxSection: {
     marginBottom: 0,

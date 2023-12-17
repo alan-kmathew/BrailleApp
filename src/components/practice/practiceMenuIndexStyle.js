@@ -13,13 +13,12 @@ export const styles = StyleSheet.create({
     backgroundColor: "#FFEC00",
     padding: 7,
     margin: 10,
-    borderRadius: 27,
+    borderRadius: 1,
     width: width * 0.5,
-    height: height * 0.09,
+    height: height * 0.06,
     alignItems: "center",
   },
   buttonText: {
-    marginBottom: 1,
     textAlign: "center",
     fontWeight: "bold",
     fontFamily: "Arial",
@@ -44,6 +43,24 @@ export const styles = StyleSheet.create({
     fontSize: width * 0.06,
     fontWeight: "bold",
     fontFamily: "Arial",
+  },
+  HOMEText: {
+    textAlign: "center",
+    color: "#001A91",
+    fontSize: width * 0.06,
+    fontWeight: "bold",
+    fontFamily: "Arial",
+  },
+  buttonHome:{
+    backgroundColor: "#FFEC00",
+    padding: 7,
+    marginTop:20,
+    marginBottom: 20,
+    borderRadius: 5,
+    width: width * 0.35,
+    height: height * 0.05,
+    alignItems: "center",
+
   },
 });
 

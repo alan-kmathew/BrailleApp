@@ -33,6 +33,12 @@ const PracticingMenuScreen = ({ navigation }) => {
       >
         <Text style={styles.buttonText}>Taktile Übung</Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.buttonHome}
+        onPress={() => navigation.navigate('StudentScreen')}
+      >
+      <Text style={styles.HOMEText} >GO HOME</Text>
+      </TouchableOpacity>
     </View>
   );
 };

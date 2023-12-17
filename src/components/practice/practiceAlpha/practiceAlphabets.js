@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native"; // Import useNavigatio
 
 const PracticeAlphabets = () => {
   const navigation = useNavigation(); // Initialize useNavigation hook
-  const totalQuestions = 5; // Set the total number of questions
+  const totalQuestions = 1; // Set the total number of questions
   const [currentAlphabet, setCurrentAlphabet] = useState("A");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedButtons, setSelectedButtons] = useState([]);
@@ -55,8 +55,9 @@ const PracticeAlphabets = () => {
   };
 
   const toggleModal = () => {
-    setModalVisible(true);
-
+    console.log("currentQuestionIndex-------------->",currentQuestionIndex);
+    console.log("totalQuestions-------------------->",totalQuestions);
+    console.log("condition---------->",currentQuestionIndex === totalQuestions - 1)
     setTimeout(() => {
       setModalVisible(false);
       if (currentQuestionIndex === totalQuestions - 1) {
@@ -65,6 +66,19 @@ const PracticeAlphabets = () => {
       }
     }, 2000);
   };
+
+
+  // const toggleModal = () => {
+  //   setModalVisible(true);
+
+  //   setTimeout(() => {
+  //     setModalVisible(false);
+
+  //     if (currentNumber === totalQuestions) {
+  //       navigation.navigate("LastPage", { word: "ZAHLEN" });
+  //     }
+  //   }, 2000);
+  // };
 
   const showCorrectIncorrectPopup = () => {
     setModalVisible(true);
@@ -99,8 +113,8 @@ const PracticeAlphabets = () => {
 
     if (currentQuestionIndex === totalQuestions - 1) {
       showCorrectIncorrectPopup();
-    } else {
       toggleModal();
+    } else {
       setSelectedButtons([]);
       handleNext();
     }
@@ -124,6 +138,7 @@ const PracticeAlphabets = () => {
   const handleEnd = () => {
     console.log("End of questions");
     navigation.navigate("LastPage");
+    setSelectedButtons([]);
     // Here navigate to a last screen, show results, etc.
   };
 
@@ -222,16 +237,18 @@ const PracticeAlphabets = () => {
       </View>
 
       <View style={styles.buttonNCContainer}>
-        <TouchableOpacity
-          style={styles.btnClear}
-          onPress={() => {
-            handleClear();
-          }}
-        >
-          <Text style={styles.bottomButtonText}>
-            {selectedButtons.length > 0 ? "Klar" : "Zurück"}
-          </Text>
+        {selectedButtons.length === 0 && (
+        <TouchableOpacity style={styles.btnClear} onPress={() => navigation.goBack()}>
+        <Text style={styles.bottomButtonText}>Zurück</Text>
         </TouchableOpacity>
+        )}
+        {selectedButtons.length > 0 && (
+        <TouchableOpacity style={styles.btnClear} onPress={() => {
+          handleClear();
+        }}>
+        <Text style={styles.bottomButtonText} >Klar</Text>
+        </TouchableOpacity>
+        )}
         <TouchableOpacity style={styles.btnSubmit} onPress={handleSubmit}>
           <Text style={styles.bottomButtonText}>
             {currentQuestionIndex === totalQuestions - 1 ? "FERTIG" : "Prüfen"}
