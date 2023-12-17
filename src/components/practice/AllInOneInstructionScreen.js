@@ -68,10 +68,10 @@ const InstructionScreen = ({ route, navigation }) => {
           style={styles.button}
           onPress={() => navigation.goBack()}
         >
-          <Text style={styles.buttonText}>Back</Text>
+          <Text style={styles.buttonText}>Zurück</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={handleNextPress}>
-          <Text style={styles.buttonText}>Next</Text>
+          <Text style={styles.buttonText}>Weiter</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>

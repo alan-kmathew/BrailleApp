@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
   text: {
     color: 'yellow',
     textAlign: 'center',
-    fontSize: width > 600 ? 40 : 30,
+    fontSize: width > 600 ? 40 : 25,
     fontWeight: 'bold',
     fontFamily: 'Arial',
     position: 'absolute',
@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
     alignSelf:'left',
     fontSize: width > 600 ? 40 : 30,
     marginLeft: width > 600 ? 36 : 18,
-    marginTop: width > 600 ? 36 : 18,
+    marginTop: width > 600 ? 36 : 40,
 
   },
   container: {

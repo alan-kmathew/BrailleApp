@@ -31,21 +31,21 @@ const WelcomeScreen = ({ route, navigation }) => {
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()} >
-          <Text style={styles.buttonText}>Back</Text>
+          <Text style={styles.buttonText}>Zurück</Text>
         </TouchableOpacity>
         {word === 'Alphabets' && (
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LearnAlphabets')}>
-        <Text style={styles.buttonText} >Next</Text>
+        <Text style={styles.buttonText} >Weiter</Text>
         </TouchableOpacity>
         )}
          {word === 'Numbers' && (
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LearnNumbers')}>
-        <Text style={styles.buttonText} >Next</Text>
+        <Text style={styles.buttonText} >Weiter</Text>
         </TouchableOpacity>
         )}
          {word !== 'Alphabets' && word !== 'Numbers' && (
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LearnWords')}>
-        <Text style={styles.buttonText} >Next</Text>
+        <Text style={styles.buttonText} >Weiter</Text>
         </TouchableOpacity>
         )}
         

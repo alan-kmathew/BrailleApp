@@ -31,7 +31,7 @@ const PracticingMenuScreen = ({ navigation }) => {
         style={styles.button}
         onPress={() => handleButtonPress("Taktile")}
       >
-        <Text style={styles.buttonText}>Taktile Übung</Text>
+        <Text style={styles.buttonText}>Übung mit Braille</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.buttonHome}

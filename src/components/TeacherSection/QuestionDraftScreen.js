@@ -84,7 +84,7 @@ const QuestionDraftScreen = ({ navigation }) => {
                 onPress={() => navigation.goBack()}
                 title="Previous Screen"
             />
-      <Text style={styles.text}>Formulieren Sie Ihre Fragen.</Text>
+      <Text style={styles.text}>Stellen Sie Ihre Fragen.</Text>
 
       {/* Note Sentence */}
       <Text style={styles.p1text}>Hinweis - Mit * gekennzeichnete Fragen sind bereits ausgewählt.</Text>
@@ -109,14 +109,14 @@ const QuestionDraftScreen = ({ navigation }) => {
       {/* Buttons */}
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button} onPress={handleSamplePreview}>
-          <Text style={styles.buttonText} onPress={() => navigation.navigate("Preview")}>See preview</Text>
+          <Text style={styles.buttonText} onPress={() => navigation.navigate("Preview")}>Siehe Vorschau</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.button}
           onPress={() => handleSaveChanges(getSelectedNumbers())}
         >
-          <Text style={styles.buttonText}>Sparen</Text>
+          <Text style={styles.buttonText}>Änderungen speichern</Text>
         </TouchableOpacity>
       </View>
 

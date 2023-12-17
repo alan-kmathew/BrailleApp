@@ -11,7 +11,6 @@ const PracticeNumbers = () => {
   const navigation = useNavigation();
   const [totalQuestions, setTotalQuestions] = useState();
   const [numberArray, setNumberArray] = useState([]);
-  const [pageCount, setPageCount]=useState(1);
   const [currentNumberIndex, setCurrentNumberIndex] = useState(0);
   const [selectedButtons, setSelectedButtons] = useState([]);
   const [isErrorPopupVisible, setErrorPopupVisible] = useState(false);
@@ -42,6 +41,7 @@ const PracticeNumbers = () => {
 
   const currentNumber = numberArray[currentNumberIndex];
 
+ 
 
   useEffect(() => {
     console.log(
@@ -72,9 +72,6 @@ const PracticeNumbers = () => {
   };
 
   const handleSubmit = () => {
-    console.log("page count ---- ", pageCount)
-    setPageCount(currentNumberIndex+1)
-    console.log("page count after---- ", pageCount)
     let isCorrect = false;
     if (selectedButtons.length === 0) {
       toggleErrorPopup();
@@ -104,15 +101,15 @@ const PracticeNumbers = () => {
       console.log("Incorrect");
     }
 
-   
-    if (currentNumber<= numberArray.length) {
-      console.log("num array---->"+numberArray.length)
+    if (currentNumberIndex <= numberArray.length - 1) {
       setCurrentNumberIndex(currentNumberIndex + 1);
       clearErrorPopupTimer();
-      toggleModal(); // Go back to the previous screen
-    } else {
-      setCurrentNumberIndex(currentNumberIndex + 1);
+      toggleModal(); 
     }
+
+    // setCurrentNumberIndex((prevIndex) => prevIndex + 1);
+    // clearErrorPopupTimer();
+    // toggleModal();
   };
 
   const toggleErrorPopup = () => {
@@ -134,28 +131,17 @@ const PracticeNumbers = () => {
 
     setTimeout(() => {
       setModalVisible(false);
-      if (pageCount === totalQuestions) {
+      if (currentNumberIndex + 1 === totalQuestions) {
         navigation.navigate("LastPage", { word: "ZAHLEN" });
         setSelectedButtons([]);
       }
     }, 2000);
   };
-
-  const handleEnd = () => {
-    console.log("End of questions");
-  };
-
-  // const handleNextQuestion = () => {
-  //   if (currentNumberIndex < =numberArray.length - 1) {
-  //     setCurrentNumberIndex(currentNumberIndex + 1);
-  //   }
-  // };
-
   return (
     <View style={styles.container}>
       <View style={styles.questionCountContainer}>
         <Text style={styles.questionCountText}>
-          Question {currentNumber} out of {numberArray.length}
+          Question {currentNumberIndex + 1} out of {numberArray.length}
         </Text>
       </View>
 
@@ -278,7 +264,7 @@ const PracticeNumbers = () => {
           }}
         >
           <Text style={styles.bottomButtonText}>
-            {pageCount === totalQuestions ? "FERTIG" : "Prüfen"}
+            {currentNumberIndex === numberArray.length - 1 ? "FERTIG" : "Prüfen"}
           </Text>
         </TouchableOpacity>
       </View>

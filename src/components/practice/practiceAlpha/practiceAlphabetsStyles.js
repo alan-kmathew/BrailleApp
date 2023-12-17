@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#001A9180",
     padding: 8,
     borderRadius: 27,
-    marginTop: 27,
+    marginTop: 50,
     alignSelf: "center",
   },
   questionCountText: {

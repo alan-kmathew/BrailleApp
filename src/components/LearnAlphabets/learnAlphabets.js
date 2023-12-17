@@ -87,7 +87,7 @@ const LearnAlphabets = ({ navigation }) => {
         <View style={styles.line} />
       </View>
       <Text style={styles.text}>
-      Jetzt lernen Sie das Alphabet {String.fromCharCode(97 + currentAlphabet)}
+      Jetzt lernen Sie das Alphabet {String.fromCharCode(97 + currentAlphabet).toUpperCase()}
       </Text>
       {renderBraille()}
       <View style={styles.buttonContainer}>
