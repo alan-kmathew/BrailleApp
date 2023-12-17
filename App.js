@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Text, View, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -9,27 +9,66 @@ import LearningMenuScreen from "./src/components/StudentLearningSection/Learning
 import WelcomeScreen from './src/components/StudentLearningSection/WelcomeScreen';
 import TeacherDesignScreen from './src/components/TeacherSection/TeacherDesignScreen';
 import QuestionDraftScreen from "./src/components/TeacherSection/QuestionDraftScreen";
- 
+import LearnNumbers from "./src/components/LearnNumbers/learnNumber.js";
+import LearnBrailleTactile from "./src/components/LearnBrailleTactile/LearnBrailleTactile.js";
+import LearnWords from "./src/components/LearnWords/learnWords.js";
+import LearnAlphabets from "./src/components/LearnAlphabets/learnAlphabets.js";
+
+import PracticeNumbers from "./src/components/practice/practiceNum/practiceNumbers.js";
+import PracticeAlphabets from "./src/components/practice/practiceAlpha/practiceAlphabets.js";
+import PracticingMenuScreen from "./src/components/practice/practiceMenuIndex.js";
+import InstructionScreen from "./src/components/practice/AllInOneInstructionScreen.js";
+import LastPage from "./src/components/practice/AllInOneLastPracticePage.js";
+import TactileExercise from "./src/components/practice/tactileExercise/TactileExercise.js";
+import Preview from "./src/components/TeacherSection/previewTeachersPage.js";
+
 const Stack = createNativeStackNavigator();
- 
+
 export default function App() {
+  useEffect(() => {
+    // Enable VoiceOver when the app starts
+
+    // Disable VoiceOver when the app is unmounted
+    return () => disableVoiceOver();
+  },);
+
   return (
     <NavigationContainer>
-     <Stack.Navigator screenOptions={
-      {headerShown:false}
-     }>
-        <Stack.Screen name="HomeScreen" component={HomeScreen}/>
-        <Stack.Screen name="LoginScreen" component={LoginScreen}/>
+      <Stack.Navigator screenOptions={
+        { headerShown: false }
+      }>
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen name="TeacherDesignScreen" component={TeacherDesignScreen} />
         <Stack.Screen name="StudentScreen" component={StudentScreen} />
         <Stack.Screen name="LearningMenuScreen" component={LearningMenuScreen} />
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} />
         <Stack.Screen name="QuestionDraftScreen" component={QuestionDraftScreen} />
-        
+        <Stack.Screen name="LearnAlphabets" component={LearnAlphabets} />
+        <Stack.Screen name="LearnNumbers" component={LearnNumbers} />
+        <Stack.Screen name="LearnWords" component={LearnWords} />
+        <Stack.Screen name="PracticingMenuScreen" component={PracticingMenuScreen} />
+        <Stack.Screen name="InstructionScreen" component={InstructionScreen} />
+        <Stack.Screen name="PracticeNumbers" component={PracticeNumbers} />
+        <Stack.Screen name="PracticeAlphabets" component={PracticeAlphabets} />
+        <Stack.Screen name="TactileExercise" component={TactileExercise} />
+        <Stack.Screen name="LastPage" component={LastPage} />
+        <Stack.Screen name="Preview" component={Preview} />
+
+
+
         {/* Add more screens here if needed */}
+
+
+        {/* <Stack.Screen
+          name="InstructionScreen"
+          component={InstructionScreen}
+          options={{
+            headerShown: false, // If you don't want to show the header
+          }}
+        /> */}
 
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
- 

@@ -6,10 +6,10 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'blue'
+    backgroundColor: '#001A91'
   },
   title: {
-    color: 'white',
+    color: 'yellow',
     marginBottom: 100,
     fontSize: 30,
     fontWeight: 'bold'
@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
     marginTop: 40
   },
   buttonText: {
-    color: 'blue',
+    color: '#001A91',
     fontSize: 25,
     textAlign: 'center',
     justifyContent: 'center',
@@ -57,7 +57,7 @@ export const styles = StyleSheet.create({
     marginTop: 40
   },
   bck_btn_text: {
-    color: 'blue',
+    color: '#001A91',
     fontSize: 21,
     textAlign: 'center',
     justifyContent: 'center',

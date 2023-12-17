@@ -5,7 +5,6 @@ import { TouchableOpacity, StyleSheet } from 'react-native';
 import styles from "../../styles/StudentScreen.styles";
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from "@react-navigation/native";
 
 
 const Stack = createStackNavigator();
@@ -13,7 +12,7 @@ const Stack = createStackNavigator();
 const StudentScreen = ({ navigation }) => {
     const handleButton2Press = () => {
         // Handle the press for button 2
-        console.log('Button 2 pressed');
+        console.log('clicked on practice button');
     };
     return (
         <View style={styles.container}>
@@ -30,11 +29,11 @@ const StudentScreen = ({ navigation }) => {
                 {'\n'} {/* New line */}
                 LERNEN & ÜBEN</Text>
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LearningMenuScreen')}>
-                <Text style={styles.buttonText}>Learning</Text>
+                <Text style={styles.buttonText}>Lernen</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button} onPress={() => handleButton2Press}>
-                <Text style={styles.buttonText}>Practice</Text>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('PracticingMenuScreen')}>
+                <Text style={styles.buttonText}>Üben </Text>
             </TouchableOpacity>
         </View>
     );

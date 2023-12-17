@@ -6,24 +6,32 @@ export const styles = StyleSheet.create({
   text: {
     color: 'yellow',
     textAlign: 'center',
-    fontSize: width > 600 ? 40 : 30,
+    fontSize: width > 600 ? 40 : 25,
     fontWeight: 'bold',
     fontFamily: 'Arial',
     position: 'absolute',
     top: height * 0.1,
   },
+  iconBack:{
+    color:'yellow',
+    alignSelf:'left',
+    fontSize: width > 600 ? 40 : 30,
+    marginLeft: width > 600 ? 36 : 18,
+    marginTop: width > 600 ? 36 : 40,
+
+  },
   container: {
     flex: 1,
-    backgroundColor: 'blue',
+    backgroundColor: '#001A91',
     justifyContent: 'center',
     alignItems: 'center',
   },
   p1text: {
     color: 'yellow',
     fontWeight: 'regular',
-    fontSize: width > 600 ? 20 : 14,
+    fontSize: width > 600 ? 20 : 18,
     position: 'absolute',
-    top: height * 0.16,
+    top: height * 0.21,
   },
   checkboxSection: {
     marginBottom: 0,
@@ -59,7 +67,7 @@ export const styles = StyleSheet.create({
     marginTop: height * 0.03,
   },
   buttonText: {
-    color: 'blue',
+    color: '#001A91',
     textAlign: 'center',
     fontSize: width > 600 ? 20 : 16,
   },
@@ -69,7 +77,7 @@ export const styles = StyleSheet.create({
     fontSize: width > 600 ? 25 : 20,
   },
   modalButton: {
-    backgroundColor: 'blue',
+    backgroundColor: '#001A91',
     padding: width * 0.02,
   },
   centeredView: {
@@ -84,7 +92,7 @@ export const styles = StyleSheet.create({
   modalText: {
     marginBottom: height * 0.02,
     fontSize: width > 600 ? 35 : 25,
-    color: 'blue',
+    color: '#001A91',
     padding: width * 0.03,
   },
 });

@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Modal, Alert } from 'react-native';
 import CheckBox from 'react-native-check-box';
 import styles from "./../../styles/QuestionDraft.styles";
 import { updateData, fetchData } from '../api';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const QuestionDraftScreen = ({ navigation }) => {
   const [data, setData] = useState(null);
@@ -35,7 +36,7 @@ const QuestionDraftScreen = ({ navigation }) => {
 
       const result = await updateData('add', updatedData);
       console.log('Data updated successfully:', result);
-      if (result.message == 'Numbers added successfully') {
+      if (result.message == 'Nummern erfolgreich hinzugefügt') {
         fetchData('/get/numbers');
         toggleModal();
       }
@@ -75,10 +76,18 @@ const QuestionDraftScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       {/* Header */}
-      <Text style={styles.text}>Questions Draft</Text>
+      <Icon
+                name="arrow-back" // Specify the name of the icon (e.g., 'home' for a home icon)
+                size={80}
+                color="yellow"
+                style={styles.iconBack}
+                onPress={() => navigation.goBack()}
+                title="Previous Screen"
+            />
+      <Text style={styles.text}>Stellen Sie Ihre Fragen.</Text>
 
       {/* Note Sentence */}
-      <Text style={styles.p1text}>Note - * marked questions are previously selected.</Text>
+      <Text style={styles.p1text}>Hinweis - Mit * gekennzeichnete Fragen sind bereits ausgewählt.</Text>
 
       {/* Checkbox Section */}
       <View style={styles.checkboxSection}>
@@ -92,7 +101,7 @@ const QuestionDraftScreen = ({ navigation }) => {
               isChecked={checkedNumbers[index]}
               onClick={() => handleCheckBoxToggle(index)}
             />
-            <Text style={styles.checkboxLabel}>{`Q. Find numbers‘${number}’?'`}</Text>
+            <Text style={styles.checkboxLabel}>{`Q. Fundstück Nummer ‘${number}’?'`}</Text>
           </View>
         ))}
       </View>
@@ -100,14 +109,14 @@ const QuestionDraftScreen = ({ navigation }) => {
       {/* Buttons */}
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button} onPress={handleSamplePreview}>
-          <Text style={styles.buttonText} onPress={() => navigation.goBack()}>Back</Text>
+          <Text style={styles.buttonText} onPress={() => navigation.navigate("Preview")}>Siehe Vorschau</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.button}
           onPress={() => handleSaveChanges(getSelectedNumbers())}
         >
-          <Text style={styles.buttonText}>Save Changes</Text>
+          <Text style={styles.buttonText}>Änderungen speichern</Text>
         </TouchableOpacity>
       </View>
 

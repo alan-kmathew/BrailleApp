@@ -15,28 +15,40 @@ const WelcomeScreen = ({ route, navigation }) => {
       <Text style={styles.headerText}>{`${word} Learning`}</Text>
       {word === 'Alphabets' && (
         <Text style={styles.sentence}>
-          Here you will explore the alphabets from A to Z. The box in Braille shows the corresponding number you will learn.
+          Hier lernen Sie das Alphabet von A bis Z kennen. Das Kästchen in Brailleschrift zeigt die entsprechende Zahl, die Sie lernen werden.
         </Text>
       )}
       {word === 'Numbers' && (
         <Text style={styles.sentence}>
-          Here you will explore the numbers from 1 to 9. The box in Braille shows the corresponding number you will learn.
+          Hier werden Sie die Zahlen von 1 bis 9 erkunden. Das Kästchen in Brailleschrift zeigt die entsprechende Zahl, die Sie lernen werden.
         </Text>
       )}
       {word !== 'Alphabets' && word !== 'Numbers' && (
         <Text style={styles.sentence}>
-          Here you will explore the words. The box in Braille shows the corresponding number you will learn.
+          Hier werden Sie die Wörter erkunden. Der Kasten in Blindenschrift zeigt die entsprechende Zahl, die Sie lernen werden.
         </Text>
       )}
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button} onPress={() => navigation.goBack()} >
-          <Text style={styles.buttonText}>Back</Text>
+          <Text style={styles.buttonText}>Zurück</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity style={styles.button} onPress={() => console.log('Button 2 pressed')}>
-          <Text style={styles.buttonText}>Next</Text>
+        {word === 'Alphabets' && (
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LearnAlphabets')}>
+        <Text style={styles.buttonText} >Weiter</Text>
         </TouchableOpacity>
+        )}
+         {word === 'Numbers' && (
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LearnNumbers')}>
+        <Text style={styles.buttonText} >Weiter</Text>
+        </TouchableOpacity>
+        )}
+         {word !== 'Alphabets' && word !== 'Numbers' && (
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LearnWords')}>
+        <Text style={styles.buttonText} >Weiter</Text>
+        </TouchableOpacity>
+        )}
+        
       </View>
     </View>
   );
@@ -47,7 +59,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'center',
-    backgroundColor: 'blue',
+    backgroundColor: '#001A91',
     paddingTop: height * 0.05,
   },
   header: {
@@ -85,7 +97,7 @@ const styles = StyleSheet.create({
     height: height * 0.07,
   },
   buttonText: {
-    color: 'blue',
+    color: '#001A91',
     textAlign: 'center',
     fontSize: width > 600 ? 30 : 25,
     marginTop: height * 0.00,

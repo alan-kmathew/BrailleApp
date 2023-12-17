@@ -25,19 +25,19 @@ const TeacherDesignScreen = ({ navigation }) => {
                 title="Previous Screen"
             />
             <Text style={styles.iconText} onPress={() => navigation.navigate('HomeScreen')}>Home</Text>
-            <Text style={styles.mainText}>Exercise design</Text>
+            <Text style={styles.mainText}>Entwerfen Sie hier Ihre Übung. </Text>
             <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText} onPress={() => navigation.navigate('QuestionDraftScreen')}>Numbers</Text>
+                <Text style={styles.buttonText} onPress={() => navigation.navigate('QuestionDraftScreen')}>ZAHLEN</Text>
                 <Text style={styles.number}>123</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>Alphabets</Text>
+                <Text style={styles.buttonText}>ALPHABET</Text>
                 <Text style={styles.number}>A</Text>
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>Words</Text>
+                <Text style={styles.buttonText}>WORTER</Text>
                 <Text style={styles.number}>ABC</Text>
             </TouchableOpacity>
         </View>

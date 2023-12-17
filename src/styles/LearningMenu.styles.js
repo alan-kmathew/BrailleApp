@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'blue'
+        backgroundColor: '#001A91'
     },
     button: {
         marginTop: 1,
@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold',
         fontFamily: 'Arial',
-        color: 'blue',
+        color: '#001A91',
         fontSize: 25,
     },
     mainText: {
