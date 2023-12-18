@@ -12,7 +12,7 @@ const WelcomeScreen = ({ route, navigation }) => {
       <View style={styles.header}>
         <View style={styles.line} />
       </View>
-      <Text style={styles.headerText}>{`${word} Learning`}</Text>
+      <Text style={styles.headerText}>{`${word} Lernen`}</Text>
       {word === 'Alphabets' && (
         <Text style={styles.sentence}>
           Hier lernen Sie das Alphabet von A bis Z kennen. Das Kästchen in Brailleschrift zeigt die entsprechende Zahl, die Sie lernen werden.

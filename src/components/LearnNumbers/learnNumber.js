@@ -18,14 +18,14 @@ const BrailleData = [
 const LearnNumbers = ({ navigation }) => {
   const [currentNumber, setCurrentNumber] = useState(0);
 
-  const handleNext = () => {
+  const handleNext = ({navigation}) => {
     if (currentNumber < 9) {
       setCurrentNumber(currentNumber + 1);
     } else {
       Alert.alert(
         "Lernen komplett",
         "Du hast das Lernen aller Zahlen abgeschlossen!",
-        [{ text: "OK" }]
+        [{ text: "OK", onPress: () => navigation.navigate('LearningMenuScreen') }]
       );
     }
   };
@@ -81,7 +81,7 @@ const LearnNumbers = ({ navigation }) => {
         <TouchableOpacity style={styles.btnBack} onPress={handleBack}>
           <Text style={styles.buttonText}>Zurück</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.btnNext} onPress={handleNext}>
+        <TouchableOpacity style={styles.btnNext} onPress={handleNext({navigation})}>
           <Text style={styles.buttonText}>Nächste</Text>
         </TouchableOpacity>
       </View>

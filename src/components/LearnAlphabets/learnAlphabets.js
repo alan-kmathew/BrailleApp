@@ -39,7 +39,7 @@ const LearnAlphabets = ({ navigation }) => {
     if (currentAlphabet < BrailleData.length - 1) {
       setCurrentAlphabet(currentAlphabet + 1);
     } else {
-      showLearningCompletePopup();
+      showLearningCompletePopup({navigation});
     }
   };
 
@@ -49,11 +49,11 @@ const LearnAlphabets = ({ navigation }) => {
     }
   };
 
-  const showLearningCompletePopup = () => {
+  const showLearningCompletePopup = ({navigation}) => {
     Alert.alert(
       "Lernen komplett",
       "Herzlichen Glückwunsch! Sie haben das Erlernen des Alphabets in Braille abgeschlossen.",
-      [{ text: "OK", onPress: () => console.log("OK Pressed") }]
+      [{ text: "OK", onPress: () => navigation.navigate('LearningMenuScreen') }]
     );
   };
 

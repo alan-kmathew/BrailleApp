@@ -29,15 +29,15 @@ const LearningMenuScreen = ({ navigation }) => {
             <Text style={styles.mainText}>START BRAILLE
                 {'\n'} {/* New line */}
                 LERNEN</Text>
-            <TouchableOpacity style={styles.button} onPress={() => handleButton1Press('Alphabets')}>
+            <TouchableOpacity style={styles.button} onPress={() => handleButton1Press('Alphabete')}>
                 <Text style={styles.buttonText}>Lernen Alphabete</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button} onPress={() => handleButton1Press('Numbers')}>
+            <TouchableOpacity style={styles.button} onPress={() => handleButton1Press('Zahlen')}>
                 <Text style={styles.buttonText}>Lernen Zahlen</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.button} onPress={() => handleButton1Press('Words')}>
+            <TouchableOpacity style={styles.button} onPress={() => handleButton1Press('Wörter')}>
                 <Text style={styles.buttonText}>Lernen Wörter</Text>
             </TouchableOpacity>
         </View>

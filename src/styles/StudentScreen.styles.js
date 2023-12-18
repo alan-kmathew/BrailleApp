@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontFamily: 'Arial',
         color: 'yellow',
-        fontSize: width > 600 ? 10 : (width * 0.06), // Adjust the factor as needed
+        fontSize: width > 600 ? 25 : (width * 0.06), // Adjust the factor as needed
     },
     icon: {
         color: 'yellow',
